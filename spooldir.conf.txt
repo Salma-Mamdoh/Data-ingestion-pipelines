@@ -1,0 +1,20 @@
+agent1.sources=streaming-txt-source
+agent1.channels=memory-channel
+agent1.sinks=kafks-sink logger-sink
+agent1.sources.streaming-txt-source.type=spooldir
+agent1.sources.streaming-txt-source.spooldir=/home/student/Labs/C3U4/spool
+
+agent1.channels.memory-channel.type = memory
+agent1.channels.memory-channel.capacity = 10000
+agent1.channels.memory-channel.transactionCapacity = 100
+
+agent1.sinks.kafka-sink.type = org.apache.flume.sink.kafka.KafkaSink
+agent1.sinks.kafka-sink.topic = stream_text2
+agent1.sinks.kafka-sink.bootstrapServers = localhost:9092
+agent1.sinks.kafka-sink.batchSize = 5
+
+agent1.sinks.logger-sink.type=logger
+
+agent1.sources.streaming-txt-source.channels=memory-channel
+agent1.sinks.logger-sink.channels=memory-channel
+agent1.sinks.kafka-sink.channel=memory-channel
