@@ -1,4 +1,3 @@
-Sure, here's the complete README.md for the "Data Ingestion Pipelines" project:
 
 # Data Ingestion Pipelines
 
